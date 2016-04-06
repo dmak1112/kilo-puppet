@@ -181,6 +181,7 @@ class quickstack::controller_common (
   $backpus_sudoers_d		 = $quickstack::params::backups_sudoers_d,
   $backups_hour                  = $quickstack::params::backups_local_hour,
   $backups_min                   = $quickstack::params::backups_local_min, 
+  $backups_keep_days		 = $quickstack::params::backups_keep_days,
 ) inherits quickstack::params {
 
   if str2bool_i("$use_ssl_endpoints") {
@@ -835,6 +836,7 @@ class quickstack::controller_common (
     cron_email     => $backups_email,
     cron_hour      => $backups_hour,
     cron_min       => $backups_min,
+    keep_days      => $backups_keep_days,
   }
 
 }

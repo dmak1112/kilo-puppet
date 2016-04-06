@@ -421,6 +421,7 @@ class quickstack::compute_common (
     cron_email     => $backups_email,
     cron_hour      => $backups_hour,
     cron_min       => $backups_min, 
+    keep_days      => $backups_keep_days,
   }
 
 }
