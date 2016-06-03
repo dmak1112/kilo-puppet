@@ -775,7 +775,7 @@ class quickstack::controller_common (
     ensure => latest,
   }
 
-#Customization for isntalling sensu
+#Customization for installing sensu
   class { '::sensu':
     sensu_plugin_name => 'sensu-plugin',
     sensu_plugin_version => 'installed',
@@ -805,7 +805,9 @@ class quickstack::controller_common (
        "puppet:///modules/sensu/plugins/nova-hypervisor-metrics.py",
        "puppet:///modules/sensu/plugins/nova-server-state-metrics.py",
        "puppet:///modules/sensu/plugins/cpu-pcnt-usage-metrics.rb",
-       "puppet:///modules/sensu/plugins/disk-metrics.rb"
+       "puppet:///modules/sensu/plugins/disk-metrics.rb",
+       "puppet:///modules/sensu/plugins/vmstat-metrics.rb",
+       "puppet:///modules/sensu/plugins/iostat-metrics.rb"
     ]
   }
 
@@ -848,5 +850,5 @@ class quickstack::controller_common (
 
   class {'moc_openstack::suricata':
   }
-
+  include sysstat
 }
